@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CalendarDays, Send } from "lucide-react";
+import { CalendarDays, Instagram as InstagramIcon, Send } from "lucide-react";
 
 const telegram = "https://t.me/alinashidakova";
 const instagram = "https://instagram.com/iamdoctoralya";
@@ -158,7 +158,8 @@ const categories = [
 
 export default function Home() {
   const buildTelegramMessage = () => {
-    const consent = (document.getElementById("consent") as HTMLInputElement)?.checked;
+    const consent = (document.getElementById("consent") as HTMLInputElement)
+      ?.checked;
 
     if (!consent) {
       alert("Пожалуйста, подтвердите согласие на обработку персональных данных.");
@@ -166,10 +167,13 @@ export default function Home() {
     }
 
     const name = (document.getElementById("name") as HTMLInputElement)?.value || "";
-    const contact = (document.getElementById("contact") as HTMLInputElement)?.value || "";
-    const service = (document.getElementById("service") as HTMLSelectElement)?.value || "";
+    const contact =
+      (document.getElementById("contact") as HTMLInputElement)?.value || "";
+    const service =
+      (document.getElementById("service") as HTMLSelectElement)?.value || "";
     const date = (document.getElementById("date") as HTMLInputElement)?.value || "";
-    const comment = (document.getElementById("comment") as HTMLTextAreaElement)?.value || "";
+    const comment =
+      (document.getElementById("comment") as HTMLTextAreaElement)?.value || "";
 
     const text = `Здравствуйте, Алина! Хочу записаться на процедуру.%0A%0AИмя: ${name}%0AКонтакт: ${contact}%0AУслуга: ${service}%0AЖелаемая дата/время: ${date}%0AКомментарий: ${comment}`;
 
@@ -181,17 +185,31 @@ export default function Home() {
       <header className="nav">
         <div className="container nav-inner">
           <a className="logo" href="#">
-            Alina Shidakova
+            Алина Шидакова
           </a>
 
           <nav className="nav-links">
-            <a href="#services">Услуги</a>
+            <a href="#services">Прайс</a>
             <a href="#booking">Запись</a>
-            <a href={instagram} target="_blank">
-              Instagram
+
+            <a
+              className="button secondary nav-social"
+              href={instagram}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <InstagramIcon size={16} />
+              <span>Instagram</span>
             </a>
-            <a className="button primary" href={telegram} target="_blank">
-              <Send size={16} /> Telegram
+
+            <a
+              className="button primary nav-social"
+              href={telegram}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Send size={16} />
+              <span>Telegram</span>
             </a>
           </nav>
         </div>
@@ -213,7 +231,7 @@ export default function Home() {
                   <CalendarDays size={18} /> Записаться
                 </a>
                 <a className="button secondary" href="#services">
-                  Услуги и цены
+                  Прайс
                 </a>
               </div>
             </div>
@@ -248,11 +266,7 @@ export default function Home() {
         <section className="section" id="services">
           <div className="container">
             <div className="section-head">
-              <h2>Услуги и цены</h2>
-              <p className="section-text">
-                Цены указаны в рублях. Финальная процедура подбирается после
-                консультации.
-              </p>
+              <h2>Прайс</h2>
             </div>
 
             <div className="services">
@@ -262,7 +276,9 @@ export default function Home() {
 
                   {category.items.map(([name, price]) => (
                     <div
-                      className={`service-row ${price === "" ? "service-note" : ""}`}
+                      className={`service-row ${
+                        price === "" ? "service-note" : ""
+                      }`}
                       key={name}
                     >
                       <span>{name}</span>
@@ -293,12 +309,12 @@ export default function Home() {
 
               <p className="section-text">
                 Instagram:{" "}
-                <a href={instagram} target="_blank">
+                <a href={instagram} target="_blank" rel="noreferrer">
                   @iamdoctoralya
                 </a>
                 <br />
                 Telegram:{" "}
-                <a href={telegram} target="_blank">
+                <a href={telegram} target="_blank" rel="noreferrer">
                   @alinashidakova
                 </a>
               </p>
