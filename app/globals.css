@@ -363,8 +363,8 @@ textarea {
 
 .consent-row {
   display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 10px;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
   align-items: start;
   color: var(--muted);
   font-size: 14px;
@@ -372,18 +372,13 @@ textarea {
   padding: 4px 0;
 }
 
-.consent-row input {
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
+.consent-row input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin-top: 3px;
   accent-color: var(--accent);
-}
-
-.consent-row a {
-  color: var(--accent-dark);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  justify-self: start;
 }
 
 /* Footer */
@@ -577,6 +572,17 @@ textarea {
 
   .price {
     white-space: normal;
+  }
+
+  .consent-row {
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+    font-size: 15px;
+  }
+
+  .consent-row input[type="checkbox"] {
+    width: 32px;
+    height: 32px;
   }
 
   .footer-inner {
