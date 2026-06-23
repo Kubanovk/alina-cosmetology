@@ -1,7 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { CalendarDays, Instagram as InstagramIcon, Send } from "lucide-react";
+import {
+  CalendarDays,
+  ChevronDown,
+  Instagram as InstagramIcon,
+  Send,
+} from "lucide-react";
 
 const telegram = "https://t.me/alinashidakova";
 const instagram = "https://instagram.com/iamdoctoralya";
@@ -157,6 +163,12 @@ const categories = [
 ];
 
 export default function Home() {
+  const [openCategory, setOpenCategory] = useState(categories[0].title);
+
+  const toggleCategory = (title: string) => {
+    setOpenCategory((current) => (current === title ? "" : title));
+  };
+
   const buildTelegramMessage = () => {
     const consent = (document.getElementById("consent") as HTMLInputElement)
       ?.checked;
@@ -270,23 +282,42 @@ export default function Home() {
             </div>
 
             <div className="services">
-              {categories.map((category) => (
-                <div className="service-card" key={category.title}>
-                  <h3>{category.title}</h3>
+              {categories.map((category) => {
+                const isOpen = openCategory === category.title;
 
-                  {category.items.map(([name, price]) => (
-                    <div
-                      className={`service-row ${
-                        price === "" ? "service-note" : ""
-                      }`}
-                      key={name}
-                    >
-                      <span>{name}</span>
-                      {price && <span className="price">{price}</span>}
+                return (
+                  <div
+                    className={`service-card ${isOpen ? "is-open" : ""}`}
+                    key={category.title}
+                  >
+                    <h3>
+                      <button
+                        className="service-toggle"
+                        type="button"
+                        onClick={() => toggleCategory(category.title)}
+                        aria-expanded={isOpen}
+                      >
+                        <span>{category.title}</span>
+                        <ChevronDown size={20} className="service-chevron" />
+                      </button>
+                    </h3>
+
+                    <div className="service-items">
+                      {category.items.map(([name, price]) => (
+                        <div
+                          className={`service-row ${
+                            price === "" ? "service-note" : ""
+                          }`}
+                          key={name}
+                        >
+                          <span>{name}</span>
+                          {price && <span className="price">{price}</span>}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
 
             <p className="section-text" style={{ marginTop: "22px" }}>
