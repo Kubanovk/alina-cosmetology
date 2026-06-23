@@ -522,7 +522,11 @@ textarea {
   }
 
   .hero {
-    padding-top: 46px;
+    padding: 46px 0 22px;
+  }
+
+  #services {
+    padding-top: 22px;
   }
 
   .hero-card-image {
