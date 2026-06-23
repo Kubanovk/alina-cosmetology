@@ -526,7 +526,15 @@ textarea {
   }
 
   #services {
+    padding: 22px 0 24px;
+  }
+
+  #booking {
     padding-top: 22px;
+  }
+
+  #services .section-text {
+    margin-bottom: 0;
   }
 
   .hero-card-image {
