@@ -62,6 +62,8 @@ const categories = [
       ["Aquashine btx", "15 000 ₽"],
       ["Aquashine br", "15 000 ₽"],
       ["Skin DNA Glow", "15 000 ₽"],
+      ["Экзосомы (микронидлинг) лицо", "13 000 ₽"],
+      ["Экзосомы (микронидлинг) лицо, шея", "16 000 ₽"],
     ],
   },
   {
@@ -231,11 +233,11 @@ export default function Home() {
         <section className="hero">
           <div className="container hero-grid">
             <div>
-              <div className="kicker">Врач-косметолог в Москве</div>
+              <div className="kicker">Врач-косметолог</div>
               <h1>Алина Шидакова</h1>
               <p className="lead">
-                Эстетическая косметология, инъекционные процедуры и индивидуальный
-                подбор ухода для естественного результата.
+                Красота вне времени. Инъекционная, аппаратная и эстетическая косметология
+                с вниманием к каждой детали.
               </p>
 
               <div className="hero-actions">
